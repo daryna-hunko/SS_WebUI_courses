@@ -1,9 +1,9 @@
 #Tasks
 
 + ##Day 5
--Chairs
--New version
+- Chairs
+- New version
 
 + ##Day 6
--ffff
--ffff
+- Tic-Tac-Toe
+- Battle ships
