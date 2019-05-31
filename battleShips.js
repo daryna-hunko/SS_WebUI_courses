@@ -59,7 +59,7 @@ function damagedOrSunk(board, attacks) {
         }
     }
     
-    result = '{ sunk: ' + sunk + ', damaged: ' + damaged + ', notTouched: ' + notTouched + ', points: ' + points + '}';
+    result = '{ sunk: ' + sunk + ', damaged: ' + damaged + ', notTouched: ' + notTouched + ', points: ' + points + ' }';
     return result;
 }
 
