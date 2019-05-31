@@ -1,9 +1,8 @@
-function immitateEndsWith(str, substr) {
+function immitateEndsWith(str, substr, position = 0) {
     substr = substr.split("").reverse().join("");
-    console.log(substr);
     str = str.split("").reverse().join("");
-    console.log(str);
-    if ((str.includes(substr)) && (str.charAt[0] === substr.charAt[0])) {
+    position = str.length - position;
+    if ((str.includes(substr)) && (str.charAt[position] === substr.charAt[position])) {
         return true;
     }
     return false;
@@ -11,4 +10,5 @@ function immitateEndsWith(str, substr) {
 
 console.log(immitateEndsWith("hello guys", "uys"));
 console.log(immitateEndsWith("hello guys", "uhys"));
-console.log(immitateEndsWith("hello guys", "affdfgfhdggjgjgh"));
+console.log(immitateEndsWith("hello guys", "ll", 2));
+console.log(immitateEndsWith("hello guys", "ello"));
