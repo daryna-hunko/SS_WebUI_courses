@@ -27,26 +27,27 @@ function damagedOrSunk(board, attacks) {
     });
 
     fireBoats(attackedFields, boats);
+    
     //checkPoints(boats, points, damaged, sunk, notTouched, attackedFields);
     
-    
-    if (boats[0] == 1) {
+    // FIXIT: checkPoints doesn\'t work as function - only directly here
+    if (boats[0] === 1) {
         points = points + 0.5;
         damaged = damaged + 1;
         notTouched = notTouched - 1;
     }
-    if (boats[1] == 1 || 2) {
+    if (boats[1] === 1 || boats[1] === 2) {
         points = points + 0.5;
         damaged = damaged + 1;
         notTouched = notTouched - 1;
     }
-    if (boats[2] == 1 || 2 || 3) {
+    if (boats[2] === 1 || boats[2] === 2 || boats[2] === 3) {
         points = points + 0.5;
         damaged = damaged + 1;
         notTouched = notTouched - 1;
     }
     for (let i = 0; i < boats.length; i++) {
-        if (boats[i] == 0) {
+        if (boats[i] === 0) {
             points = points + 1;
             sunk = sunk + 1;
             notTouched = notTouched - 1;
@@ -76,23 +77,23 @@ function fireBoats(attackedFields, boats) {
     }
 }
 function checkPoints(boats, points, damaged, sunk, notTouched, attackedFields) {
-    if (boats[0] == 1) {
+    if (boats[0] === 1) {
         points = points + 0.5;
         damaged = damaged + 1;
         notTouched = notTouched - 1;
     }
-    if (boats[1] == 1 || 2) {
+    if (boats[1] === 1 || boats[1] === 2) {
         points = points + 0.5;
         damaged = damaged + 1;
         notTouched = notTouched - 1;
     }
-    if (boats[2] == 1 || 2 || 3) {
+    if (boats[2] === 1 || boats[2] === 2 || boats[2] === 3) {
         points = points + 0.5;
         damaged = damaged + 1;
         notTouched = notTouched - 1;
     }
     for (let i = 0; i < boats.length; i++) {
-        if (boats[i] == 0) {
+        if (boats[i] === 0) {
             points = points + 1;
             sunk = sunk + 1;
             notTouched = notTouched - 1;
@@ -104,6 +105,5 @@ function checkPoints(boats, points, damaged, sunk, notTouched, attackedFields) {
         }
     }
 }
-
 
 console.log(damagedOrSunk(board, attacks));
