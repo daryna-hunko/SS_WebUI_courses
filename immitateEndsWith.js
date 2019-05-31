@@ -11,4 +11,3 @@ function immitateEndsWith(str, substr, position = 0) {
 console.log(immitateEndsWith("hello guys", "uys"));
 console.log(immitateEndsWith("hello guys", "uhys"));
 console.log(immitateEndsWith("hello guys", "ll", 2));
-console.log(immitateEndsWith("hello guys", "ello"));
