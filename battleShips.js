@@ -104,7 +104,6 @@ function checkPoints(boats, points, damaged, sunk, notTouched, attackedFields) {
             points = points - 1;
         }
     }
-    return (points, damaged, sunk, notTouched);
 }
 
 console.log(damagedOrSunk(board, attacks));
