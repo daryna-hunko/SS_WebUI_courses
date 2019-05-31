@@ -9,4 +9,4 @@
 
  ##Day 6
 - [Tic-Tac-Toe](https://github.com/dhunko/SS_WebUI_courses/blob/master/task6_1.js "Tic-Tac-Toe")
-- Battle ships
+- [Battle ships](https://github.com/dhunko/SS_WebUI_courses/blob/master/task6_1battleShips.js "Battle ships")
