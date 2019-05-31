@@ -27,21 +27,20 @@ function damagedOrSunk(board, attacks) {
     });
 
     fireBoats(attackedFields, boats);
-    
     //checkPoints(boats, points, damaged, sunk, notTouched, attackedFields);
     
-    // FIXIT: checkPoints doesn\'t work as function - only directly here
+    
     if (boats[0] == 1) {
         points = points + 0.5;
         damaged = damaged + 1;
         notTouched = notTouched - 1;
     }
-    if (boats[1] == 1 || 2) {
+    if (boats[1] == 1 || boats[1] == 2) {
         points = points + 0.5;
         damaged = damaged + 1;
         notTouched = notTouched - 1;
     }
-    if (boats[2] == 1 || 2 || 3) {
+    if (boats[2] == 1 || boats[2] == 2 || boats[2] == 3) {
         points = points + 0.5;
         damaged = damaged + 1;
         notTouched = notTouched - 1;
@@ -59,7 +58,7 @@ function damagedOrSunk(board, attacks) {
         }
     }
     
-    result = '\{ sunk: ' + sunk + ', damaged: ' + damaged + ', notTouched: ' + notTouched + ', points: ' + points + ' \}';
+    result = '{ sunk: ' + sunk + ', damaged: ' + damaged + ', notTouched: ' + notTouched + ', points: ' + points + '}';
     return result;
 }
 
@@ -105,5 +104,6 @@ function checkPoints(boats, points, damaged, sunk, notTouched, attackedFields) {
         }
     }
 }
+
 
 console.log(damagedOrSunk(board, attacks));
