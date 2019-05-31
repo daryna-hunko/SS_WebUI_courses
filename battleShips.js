@@ -75,6 +75,7 @@ function fireBoats(attackedFields, boats) {
             boats[2] -= 1;
         }
     }
+    return boats;
 }
 function checkPoints(boats, points, damaged, sunk, notTouched, attackedFields) {
     if (boats[0] === 1) {
@@ -104,6 +105,7 @@ function checkPoints(boats, points, damaged, sunk, notTouched, attackedFields) {
             points = points - 1;
         }
     }
+    return (points, damaged, sunk, notTouched);
 }
 
 console.log(damagedOrSunk(board, attacks));
