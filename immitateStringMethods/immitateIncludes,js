@@ -1,6 +1,6 @@
 function immitateIncludes(string, subString, start = 0) {
-    if (typeof(string) != 'String') {
-        return 'undefined'
+    if (typeof(string) !== 'string') {
+        return 'undefined';
     }
     if (string.indexOf(subString, start) !== -1) {
         return true;
