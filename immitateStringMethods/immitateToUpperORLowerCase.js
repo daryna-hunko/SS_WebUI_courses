@@ -1,6 +1,6 @@
 function immitateToUpperCase(string) {
     if (typeof(string) !== 'string') {
-        return 'undefined';
+        return undefined;
     }
     string = string.split('');
         console.log(string);
