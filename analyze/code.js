@@ -152,3 +152,4 @@ class NumC{
   //тест dates.values = строка и на соотвествие шаблону(?)
 
   let a = document.querySelectorAll('.pre');
+  let curr = 'UAH';

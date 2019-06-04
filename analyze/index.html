@@ -19,18 +19,7 @@
 
 <body>
   <a href="documentation.html" target="_blank">The documentation is here</a>
-  <script src="code.js"></script>
-
-  <!-- the script with tests (describe, it...) -->
-  <script src="codeTests.js"></script>
-
-  <!-- the element with id="mocha" will contain test results -->
-  <div id="mocha"></div>
-
-  <!-- run tests! -->
-  <script>
-    mocha.run();
-  </script>
+  
 
 <table id="table" style="font-size: 0;">
 <tbody>
@@ -43,6 +32,18 @@
     </tr>
 </tbody>
 </table>
+<script src="code.js"></script>
+
+  <!-- the script with tests (describe, it...) -->
+  <script src="codeTests.js"></script>
+
+  <!-- the element with id="mocha" will contain test results -->
+  <div id="mocha"></div>
+
+  <!-- run tests! -->
+  <script>
+    mocha.run();
+  </script>
 </body>
 
 </html>

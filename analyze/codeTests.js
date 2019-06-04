@@ -1,10 +1,13 @@
-describe("toData", function() {
+/*describe("toData", function() {
 
     it("returns the decimal number", function() {
         assert.equal(toData(456454)), 456454);
         assert.equal(toData(' fg  ggfb1313')), NaN);
         assert.equal(toData(' 1313 &nbsp;')), 1313);
         assert.typeOf(toData(' 1313 &nbsp;'), 'number');
+    });
+
+    it("returns the decimal number", function() {
     });
   
   });
@@ -122,15 +125,13 @@ describe("toCurrency", function() {
           assert.isObject(NumC.getFALDates(a, '.date'));
       });
   });
-  
-  describe("проверка аргументов", function () {
-      it(`длинна должна быть 3`, function () {
-          assert.lengthOf((curr),3);
-      });
-      it(`аргумент - строка`, function () {
-          assert.isString(curr);
-      });
-      it(`аргумент - не число и не может быть к нему преобразован`, function () {
-          assert.isNaN(curr);
-      });
-  });
+  */
+
+describe("toData", function () {
+    it("returns the decimal number", function() {
+        assert.equal(toData(456454)), 456454);
+        assert.equal(toData(' fg  ggfb1313')), NaN);
+        assert.equal(toData(' 1313 &nbsp;')), 1313);
+        assert.typeOf(toData(' 1313 &nbsp;'), 'number');
+    });
+});
