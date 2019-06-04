@@ -4,6 +4,9 @@ describe("createMixedSequence", function() {
         assert.equal(createMixedSequence([], 10), []);
     });
     it("returns the empty array if pattern is empty", function() {
+        expect(createMixedSequence([], 10)).to.eql([]);
+    });
+    it("returns the empty array if pattern is empty", function() {
         expect(createMixedSequence([], 10)).to.deep.equal([]);
     });
     it("returns the empty array if pattern is empty", function() {
