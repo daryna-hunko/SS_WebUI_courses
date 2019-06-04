@@ -41,3 +41,14 @@ describe("toCurrency", function() {
     });
   
   });
+
+  describe("toData", function () {
+    it(`Является вспомогательным для метода calcSummFromRows
+    принимает строку, удаляет пробелы, заменяет ',' на '.',
+         и выводит число.`, function () {
+        assert.equal(NumC.toData('  3,54654 '), 3.54654);
+    });
+    it(`Возвращает число`, function () {
+        assert.isNotNaN(NumC.toData('  3,54654 '));
+    });
+});
