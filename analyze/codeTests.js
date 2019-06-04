@@ -4,6 +4,9 @@ describe("toData", function() {
         assert.equal(NumC.toData(456454), 456454);
         assert.equal(NumC.toData(' fg  ggfb1313'), NaN);
         assert.equal(NumC.toData(' 1313 &nbsp;'), 1313);
+    });
+
+    it("returns the decimal number typeOf check", function() {
         assert.typeOf(NumC.toData(' 1313 &nbsp;'), 'number');
     });
   
@@ -15,6 +18,9 @@ describe("isNumeric", function() {
         assert.equal(NumC.isNumeric(456454), true);
         assert.equal(NumC.isNumeric(' fg  ggfb1313'), false);
         assert.equal(NumC.toData(), false);
+    });
+
+    it("check whether an input is a number typeOf check", function() {
         assert.typeOf(NumC.toData(456454), 'boolean');
     });
   
