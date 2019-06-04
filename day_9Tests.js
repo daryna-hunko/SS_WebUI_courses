@@ -4,6 +4,9 @@ describe("createMixedSequence", function() {
         assert.equal(createMixedSequence([], 10), []);
     });
     it("returns the empty array if pattern is empty", function() {
+        expect(createMixedSequence([], 10)).to.deep.equal([]);
+    });
+    it("returns the empty array if pattern is empty", function() {
         assert.equal(createMixedSequence(['fib'], 0), []);
     });
     it("returns the array on mixed numbers in accordance with pattern - 10 fibonacci", function() {
