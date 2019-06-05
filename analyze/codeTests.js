@@ -9,11 +9,11 @@ describe("toData", function() {
         assert.typeOf(NumC.toData(' 1313 &nbsp;'), 'number');
     });
   
-  });
+});
 
 describe("toBuh", function () {
     it("check up the input to be matching with requirements", function () {
-        assert.equal(NumC.toBuh(1.1223, 3, 'UAH'), '1.1223 UAH');
+        assert.equal(NumC.toBuh(1.1223, 3, 'UAH'), '1.122 UAH');
         assert.equal(NumC.toBuh('asd5555asd'), 'asd5555asd');
     });
 });
@@ -31,10 +31,10 @@ describe("isNumeric", function() {
     });
 
     it("check whether an input is a number check 2", function() {
-        assert.isTrue(NumC.isNumeric('456454,24'));
+        assert.isTrue(NumC.isNumeric(456454.24));
     });
 
-  });
+});
 
 describe("toSymbol", function() {
 
@@ -43,13 +43,13 @@ describe("toSymbol", function() {
         assert.isString(NumC.toCurrency('UAH'));
     });
   
-  });
+});
 
 describe("toCurrency", function() {
 
     it("returns strings with currency abbr by the input with the currency symbol", function() {
-        assert.equal(NumC.toSymbol("₴"), "UAH");
+        assert.equal(NumC.toCurrency("₴"), "UAH");
         assert.isString(NumC.toCurrency('₴'));
     });
   
-  });
+});
