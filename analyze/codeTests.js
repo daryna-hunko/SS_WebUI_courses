@@ -13,7 +13,7 @@ describe("toData", function() {
 
 describe("toBuh", function () {
     it("check up the input to be matching with requirements", function () {
-        assert.equal(NumC.toBuh(1.1223, 3, 'UAH'), '1.122 UAH');
+        assert.equal(NumC.toBuh(1.1223, 3, 'UAH'), '1,122 UAH');
         assert.equal(NumC.toBuh('asd5555asd'), 'asd5555asd');
     });
 });
