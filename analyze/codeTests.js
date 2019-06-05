@@ -11,14 +11,26 @@ describe("toData", function() {
   
   });
 
+describe("toBuh", function () {
+    it("check up the input to be matching with requirements", function () {
+        assert.equal(NumC.toBuh(1.1223, 3, 'UAH'), '1.1223 UAH');
+        assert.equal(NumC.toBuh('asd5555asd'), 'asd5555asd');
+    });
+});
+
+describe("convertToBuh", function () {
+    it("localize input in accordance with locale and returns the result string in the format \'number plus currency\'", function () {
+        assert.equal(NumC.convertToBuh('1.1223', 3, 'UAH'), '1.1223 UAH');
+    });
+});
+
 describe("isNumeric", function() {
 
     it("check whether an input is a number", function() {
         assert.equal(NumC.isNumeric(456454), true);
-        assert.equal(NumC.isNumeric(' fg  ggfb1313'), false);
     });
 
-    it("check whether an input is a number typeOf check", function() {
+    it("check whether an input is a number check 2", function() {
         assert.isTrue(NumC.isNumeric('456454,24'));
     });
 
@@ -28,7 +40,7 @@ describe("toSymbol", function() {
 
     it("returns strings with currency symbol by the input with the currency abbr", function() {
         assert.equal(NumC.toSymbol("UAH"), "₴");
-        assert.typeOf(NumC.toSymbol("UAH"), 'string');
+        assert.isString(NumC.toCurrency('UAH'));
     });
   
   });
@@ -37,7 +49,7 @@ describe("toCurrency", function() {
 
     it("returns strings with currency abbr by the input with the currency symbol", function() {
         assert.equal(NumC.toSymbol("₴"), "UAH");
-        assert.typeOf(NumC.toSymbol("$"), 'string');
+        assert.isString(NumC.toCurrency('₴'));
     });
   
   });
