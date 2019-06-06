@@ -8,7 +8,7 @@ function countdown(ms) {
 
       if (tempCountdown >= 3600000) {
         hrs = tempCountdown/3600000;
-        hrs = hrs.toFixed(0).toString();
+        hrs = hrs.toFixed(0);
         if (hrs < 10 && hrs > 0) {
           hrs = ('0' + hrs);
         }
@@ -18,7 +18,7 @@ function countdown(ms) {
 
       if (tempCountdown >= 60000) {
         mnts = tempCountdown/60000;
-        mnts = mnts.toFixed(0).toString()
+        mnts = mnts.toFixed(0);
         if (mnts < 10 && mnts > 0) {
           mnts = ('0' + mnts);
         }
@@ -28,7 +28,7 @@ function countdown(ms) {
 
       if (tempCountdown >= 1000) {
         scnds = tempCountdown/1000;
-        scnds = scnds.toFixed(0).toString()
+        scnds = scnds.toFixed(0);
         if (scnds < 10 && scnds > 0) {
           scnds = ('0' + scnds);
         }

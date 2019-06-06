@@ -34,4 +34,24 @@ function checkUp(arr, sum) {
   }
 }
 
-console.log(plusMinus([1, 3, 4, 6, 8], 20));
+const arr = [3, 1, 4, 6, 8, 8, 8, 8],
+      sum = 11;
+function arrSum (arr) {
+  return arr.reduce((acc, el) {acc + el});
+}
+
+function calcu(index, ...arr) {
+  let sumPlus = arrSum(arr),
+      arrMinus = [...arr],
+      sumMinus = 0;
+
+      arrMinus[index] *= -1;
+      sumMinus = arrSum(arrMinus);
+
+      if (sumMinus == sun || sumPlus == sum) {
+        return true;
+      }
+
+      return (++index = arr.length - 1) ? false : calcu(index, ...arr) || calcu(index, ...arrMinus)
+
+}
