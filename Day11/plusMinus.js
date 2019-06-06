@@ -2,21 +2,27 @@ function plusMinus (arr, sum) {
   checkUp(arr, sum);
 
   let resultArr = [], // for the sum of arrays
-      arraysSet = [[1, 3, 4, 6, 8],[-1, 3, 4, 6, 8],[1, -3, 4, 6, 8],[1, 3, -4, 6, 8]], // all possible variants of array
-      sumI = Number();
+      arraysSet = [], // all possible variants of array
+      sumI;
 
-  
-  for (let i = 0; i < arraysSet.length; i++) {
-      sumI += arraysSet[i];
-      resultArr.push(sumI);
-      console.log(sumI);
-  }
-  console.log(resultArr);
-  for (let i = 0; i < resultArr.length; i++) {
+    sumI = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sumI += +arr[i];
+    }
+    if (sumI == sum) {
+        return true;
+    }
+    
+    recSum (arr, sum);
+    
+    
+    
+    
+  /*for (let i = 0; i < resultArr.length; i++) {
     if (resultArr[i] == sum) {
       return true;
     }
-  }
+  }*/
   return false;
 }
 
@@ -34,4 +40,20 @@ function checkUp(arr, sum) {
   }
 }
 
-console.log(plusMinus([1, 3, 4, 6, 8], 20));
+console.log(plusMinus([1, 3, 4, 4], 11));
+
+function recSum(arr, sum) {
+    let sumarr = 0,
+    count = 0;
+    
+    arr[count] *= -1;
+    for (let i = 0; i < arr.length; i++) {
+        sumarr += +arr[i];
+    }
+    if (sumarr == sum) {
+      return true;
+    } else (
+        recSum(arr,sum)
+    )
+    return false;
+}
