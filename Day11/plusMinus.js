@@ -40,8 +40,6 @@ function checkUp(arr, sum) {
   }
 }
 
-console.log(plusMinus([1, 3, 4, 4], 11));
-
 function recSum(arr, sum) {
     let sumarr = 0,
     count = 0;
@@ -50,6 +48,7 @@ function recSum(arr, sum) {
     for (let i = 0; i < arr.length; i++) {
         sumarr += +arr[i];
     }
+    count++;
     if (sumarr == sum) {
       return true;
     } else (
@@ -57,3 +56,5 @@ function recSum(arr, sum) {
     )
     return false;
 }
+
+console.log(plusMinus([1, 3, 4, 4], 11));
