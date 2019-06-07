@@ -40,7 +40,6 @@ function checkUp(arr, sum) {
   }
 }
 
-<<<<<<< HEAD
 const arr = [3, 1, 4, 6, 8, 8, 8, 8],
       sum = 11;
 function arrSum (arr) {
@@ -62,23 +61,3 @@ function calcu(index, ...arr) {
       return (++index = arr.length - 1) ? false : calcu(index, ...arr) || calcu(index, ...arrMinus)
 
 }
-=======
-function recSum(arr, sum) {
-    let sumarr = 0,
-    count = 0;
-    
-    arr[count] *= -1;
-    for (let i = 0; i < arr.length; i++) {
-        sumarr += +arr[i];
-    }
-    count++;
-    if (sumarr == sum) {
-      return true;
-    } else (
-        recSum(arr,sum)
-    )
-    return false;
-}
-
-console.log(plusMinus([1, 3, 4, 4], 11));
->>>>>>> 493bca7f17435b4b741577b6856c621b9550f4a5
