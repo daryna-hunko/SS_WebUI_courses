@@ -1,4 +1,7 @@
 function naturalNumbers(n, m) {
+  if(!isFinite(n) || !isFinite(m) || n < 0 || m < 0) {
+    return {status: 'failed', reason: 'some of paramerers are not correct'};
+  }
   let naturalNumbersArray = [],
       numberI;
 
@@ -14,3 +17,4 @@ function naturalNumbers(n, m) {
   return naturalNumbersArray.join(', ');
 }
 console.log(naturalNumbers(8, 4));
+console.log(naturalNumbers(-8, 4));

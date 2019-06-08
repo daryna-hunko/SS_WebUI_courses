@@ -5,23 +5,19 @@ function checkeSqueres(obj) {
     for (let key of obj) {
       let keysI = Object.keys(key);
       keysArr.push(keysI);
-       for (let el in key) {
-            let p = (el[keysArr[1]] + el[keysArr[2]] + el[keysArr[3]])*0.5;
-            obj[i].squere = Math.sqrt(p * (p - el[keysArr[i+1]]) * (p - el[keysArr[i+2]]) * (p - el[keysArr[i+3]]));
-            console.log(key);
-        }
     }
-    console.log(keysArr);
-
-    /*for (let i = 0, i < obj.length, i++) {
-        for (let key in obj[i]) {
-            let p = (key[keysArr[i+1]] + key[keysArr[i+2]] + key[keysArr[i+3]])*0.5;
-            obj[i].squere = Math.sqrt(p * (p - key[keysArr[i+1]]) * (p - key[keysArr[i+2]]) * (p - key[keysArr[i+3]]));
-        }
-        console.log(obj[i]);
         //var p = (prop[1] + prop[2] + prop[3])*0.5; //Вычисление полупериметра
         //obj.squere = Math.sqrt(p * (p - prop[1]) * (p - prop[2]) * (p - prop[3]));//Вычисление площади
-    }*/
+
+    for (let i = 0; i < obj.length; i++) {
+            let n1 = keysArr[i][1],
+                n2 = keysArr[i][2],
+                n3 = keysArr[i][3];
+            console.log(obj[i].n1);
+            let p = (obj[i].n1 + obj[i].keysArr[i][2] + obj[i].keysArr[i][31])*0.5;
+            obj[i].square = Math.sqrt(p * (p - obj[i].n1) * (p - obj[i].n2) * (p - obj[i].n3));
+        //console.log(obj[i]);
+    }
     
     /* 
     obj = obj.sort(compare);
@@ -42,8 +38,8 @@ function compare( a, b ) {
 
 checkeSqueres(
     [
-    {name: 'ABC', a: 5, b: 5, c: 5},
-    {name: 'CDA', c: 1, d: 5, a: 4},
-    {name: 'FES', f: 5, e: 5, s: 5}
+    {name: 'ABC', 'a': 5, 'b': 5, 'c': 5},
+    {name: 'CDA', 'c': 1, 'd': 5, 'a': 4},
+    {name: 'FES', 'f': 5, 'e': 5, 's': 5}
     ]
 );
