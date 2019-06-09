@@ -1,9 +1,11 @@
-function fibonachi(min, max, length) {
+function fibonachi(obj, length) {
     let fibArray = [],
         minValue,
+        min = obj.min, 
+        max = obj.max,
         maxValue,
-        error;
-    validateInput(min, max, length, error);
+        error ={};
+    error = validateInput(min, max, length, error);
 
     if (length != undefined || 0) {
         let zeros = '';
@@ -11,7 +13,7 @@ function fibonachi(min, max, length) {
             zeros += '0';
         }
         minValue = +(1 + zeros);
-        let maxValue = '';
+        maxValue = '';
         for (let i = 0; i < length; i++) {
             maxValue += '9';
         }
@@ -20,7 +22,7 @@ function fibonachi(min, max, length) {
     if ((min.length && max.length) != 0 && (length == undefined || length == 0 )) {
         countFibonachiByLimits(minValue = min, maxValue = max, fibArray);
     }
-    return (fibArray.length == 0) ? error : fibArray;
+    return (Object.keys(error).length !== 0) ? error : fibArray;
 }
 
 function countFibonachiByLength(minValue, length, fibArray) {
@@ -49,14 +51,15 @@ function validateInput(min, max, length, error) {
         return length = 0;
     }
     if (!isFinite(min) || !isFinite(max) && !isFinite(length)) {
-        return error = {status: 'failed', reason: 'Not a number'};
+        error = {status: 'failed', reason: 'Not a number'};
     }
-    if ((min === 0 && max === 0) && (length == undefined || 0)) {
-        return error = {status: 'failed', reason: 'nothing to count'};
+    if ((min === 0 && max === 0) && (length === undefined || length === 0)) {
+        error = {status: 'failed', reason: 'nothing to count'};
     }
+    return error;
 }
-console.log(fibonachi(100,999));
-console.log(fibonachi(0,0,8));
-console.log(fibonachi(100,999,8));
+console.log(fibonachi({min: 100, max: 999}));
+console.log(fibonachi({min: 0, max: 0},8));
+console.log(fibonachi({min: 100, max: 999},8));
 //TOFIX - don't get error - returns undefined
-console.log(fibonachi(0,0));
+console.log(fibonachi({min: 0, max: 0}));

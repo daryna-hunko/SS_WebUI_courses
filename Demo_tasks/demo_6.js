@@ -1,7 +1,8 @@
 function naturalNumbers(n, m) {
   if(!isFinite(n) || !isFinite(m) || n < 0 || m < 0) {
-    return {status: 'failed', reason: 'some of paramerers are not correct'};
+    return {status: 'failed', reason: 'some of paramerers is not correct'};
   }
+
   let naturalNumbersArray = [],
       numberI;
 
