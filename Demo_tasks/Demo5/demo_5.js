@@ -12,8 +12,8 @@ function luckyTickets(obj) {
   return (Object.keys(error).length !== 0) ? error : 0;
 }
 
-const reducer = (acc, curr) => acc + curr;
 function countMethodM(min, max, methodMCounter/*, reducer*/) {
+const reducer = (acc, curr) => acc + curr;
   methodMCounter = 0;
   let arrLeft = [],
       arrRight = [],

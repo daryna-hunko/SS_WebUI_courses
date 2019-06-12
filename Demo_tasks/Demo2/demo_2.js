@@ -1,10 +1,11 @@
-//TODO: check the input
+//TODO: input is Object O_o
 //math reference https://www.jstor.org/stable/2691523?seq=1#page_scan_tab_contents
 function envelopes(envelopeA, envelopeB) {
-    let error = checkInput(envelopeA, envelopeB, error);
-    if (Object.keys(error).length !== 0) {
-        return error;
-    }
+let error = '',
+    result = 0;
+
+  error = checkInput(envelopeA, envelopeB, error);
+  if (Object.keys(error).length == 0) {
 
     let a = Math.max(envelopeA[0], envelopeA[1]),
         b = Math.min(envelopeA[0], envelopeA[1]),
@@ -16,12 +17,16 @@ function envelopes(envelopeA, envelopeB) {
     let squareB = (2*a*b*p + (a*a-b*b)*Math.sqrt(a*a+b*b-p*p)) / (a*a+b*b);
 
     if ((p <= a && q <= b) || (p > a && b >= squareA)) {
-        return envelopeA;
+        result = envelopeB;
     }
     if ((a <= p && b <= q) || (a > p && q >= squareB)) {
-        return envelopeB;
+        result = envelopeA;
     }
-    return 0;
+  } else {
+      result = error;
+  }
+
+  return result;
 }
 
 function checkInput(envelopeA, envelopeB, error) {
@@ -35,11 +40,10 @@ function checkInput(envelopeA, envelopeB, error) {
         error = {status: 'failed', reason: 'some of paramerers is not correct'};
     }
     return error;
-
 }
-//console.log(envelopes([2,2], [2,4]));
-//console.log(envelopes([12,2], [2,4]));
-//console.log(envelopes([12,1], [2,4]));
-console.log(envelopes(12, [2,4]));
-console.log(envelopes(['xx',2], [2,4]));
-console.log(envelopes([2,4],[]));
+console.log(envelopes([2,2], [2,4]));
+console.log(envelopes([12,2], [2,4]));
+console.log(envelopes([12,1], [2,4]));
+//console.log(envelopes(12, [2,4]));
+//console.log(envelopes(['xx',2], [2,4]));
+//console.log(envelopes([2,4],[]));

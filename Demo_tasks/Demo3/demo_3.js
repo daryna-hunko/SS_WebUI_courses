@@ -6,9 +6,7 @@ function checkeSqueres(obj) {
       let keysI = Object.keys(key);
       keysArr.push(keysI);
     }
-        //var p = (prop[1] + prop[2] + prop[3])*0.5; //Вычисление полупериметра
-        //obj.squere = Math.sqrt(p * (p - prop[1]) * (p - prop[2]) * (p - prop[3]));//Вычисление площади
-
+ 
     for (let i = 0; i < obj.length; i++) {
             let n1 = keysArr[i][1],
                 n2 = keysArr[i][2],
