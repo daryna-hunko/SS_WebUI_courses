@@ -1,3 +1,4 @@
+//TO FIX - yyy, ddd, dd@hh-MM formats
 function dateFormatter(date = 0, format = 'yyyy:MM:dd') {
 
   if (typeof(format) !== 'string') {
