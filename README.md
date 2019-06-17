@@ -45,4 +45,4 @@
 
 
  ##Calendar
-- [Demo1](https://dhunko.github.io/SS_WebUI_courses/Calendar/index.html "Calendar")
+- [Calendar](https://dhunko.github.io/SS_WebUI_courses/Calendar/index.html "Calendar")
