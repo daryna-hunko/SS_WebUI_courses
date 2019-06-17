@@ -10,7 +10,7 @@ function fibonachi(obj, length) {
 
 
   if (Object.keys(error).length == 0) {
-    if (isFinite(min) && isFinite(max)) {
+    if (isFinite(min) && isFinite(max) && min > 0 && max > 0) {
       length = 0;
     }
 
@@ -62,7 +62,7 @@ function validateInput(min, max, length, error) {
     if (!isFinite(min) || !isFinite(max) && !isFinite(length)) {
         error = {status: 'failed', reason: 'Not a number'};
     }
-    if ((min !== undefined && max !== undefined) && (length === undefined || length === 0)) {
+    if ((min === 0 && max === 0) && (length === undefined || length === 0)) {
         error = {status: 'failed', reason: 'nothing to count'};
     }
     return error;
@@ -70,5 +70,4 @@ function validateInput(min, max, length, error) {
 console.log(fibonachi({min: 100, max: 999}));
 console.log(fibonachi({min: 0, max: 0},8));
 console.log(fibonachi({min: 100, max: 999},8));
-//TOFIX - don't get error - returns undefined
-//console.log(fibonachi({min: 0, max: 0}));
+console.log(fibonachi({min: 0, max: 0}));
