@@ -67,8 +67,8 @@ function validateInput(min, max, length, error) {
     }
     return error;
 }
-//console.log(fibonachi({min: 100, max: 999}));
-//console.log(fibonachi({min: 0, max: 0},8));
+console.log(fibonachi({min: 100, max: 999}));
+console.log(fibonachi({min: 0, max: 0},8));
 console.log(fibonachi({min: 100, max: 999},8));
 //TOFIX - don't get error - returns undefined
 //console.log(fibonachi({min: 0, max: 0}));
