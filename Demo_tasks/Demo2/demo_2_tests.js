@@ -1,11 +1,11 @@
 describe("envelopes", function() {
 
   it("returns the envelope that is bigger", function() {
-      expect(envelopes([2,2], [2,4])).to.eql([2,4]);
+      expect(envelopes([2,2], [2,4])).to.eql([2,2]);
   });
 
   it("returns the envelope that is bigger", function() {
-      expect(envelopes([12,2], [2,4])).to.eql([12,2]);
+      expect(envelopes([12,2], [2,4])).to.eql([2,4]);
   });
 
   it("returns 0 - cannot include", function() {
