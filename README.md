@@ -42,3 +42,7 @@
 - [Demo5](https://dhunko.github.io/SS_WebUI_courses/Demo_tasks/Demo5/index.html "Demo5")
 - [Demo6](https://dhunko.github.io/SS_WebUI_courses/Demo_tasks/Demo6/index.html "Demo6")
 - [Demo7](https://dhunko.github.io/SS_WebUI_courses/Demo_tasks/Demo7/index.html "Demo7")
+
+
+ ##Calendar
+- [Demo1](https://dhunko.github.io/SS_WebUI_courses/Calendar/index.html "Calendar")
