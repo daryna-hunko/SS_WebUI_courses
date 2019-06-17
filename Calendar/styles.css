@@ -21,6 +21,7 @@
 }
 .full_date {
   color: #2e85ca;
+  font-size: 14px;
   padding: 0 7px;
   margin-top: -7px;
 }
@@ -83,6 +84,6 @@
 .cur-day {
   background: #2e85ca;
     border-color: #2e85ca;
-    outline: 2px solid #000;
+    outline: 2px solid rgba(0, 0, 0, 0.6);
     outline-offset: -4px;
 }

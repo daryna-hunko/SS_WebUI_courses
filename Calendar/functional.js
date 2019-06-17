@@ -62,7 +62,7 @@ function genCalendar(date) {
       count = 0,
       prevMonthDays = dayInMonth[date.getMonth() - 1] - (startDay - 1),
       nextMonthDays = 1;
-  for(let i = 0; i < startDay; i++) {
+  for(let i = 0; i < startDay - 1; i++) {
     content += '<span class="disabled prevMonth">' + prevMonthDays + '</span>';
     prevMonthDays++;
     count++;
