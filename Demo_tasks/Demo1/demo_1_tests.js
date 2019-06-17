@@ -13,7 +13,7 @@ describe("createField", function() {
 
   it("returns error object", function() {
       expect(createField('fdgdf',10, 5)).to.eql({
-        reason: "height is not a number or is Infinity",
+        reason: "symb is not a number or string",
         status: "failed"
       });
   });

@@ -7,7 +7,7 @@ describe("naturalNumbers", function() {
   it("returns error object", function() {
       expect(naturalNumbers(-8, 4)).to.eql({
         status: 'failed', 
-        reason: 'some of paramerers are not correct'
+        reason: 'some of paramerers is not correct'
       });
   });
 
