@@ -13,7 +13,7 @@
   color: #fff;
   padding: 10px 15px;
   font-size: 12px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Calibri, sans-serif;
 }
 .header_clock {
   font-size: 54px;
@@ -55,7 +55,6 @@
   cursor: pointer;
   border: none;
 }
-
 .cal_body {
   display: flex;
   justify-content: start;
@@ -80,10 +79,12 @@
   color: rgba(255, 255, 255, 0.6);
   border: 1px solid transparent;
 }
-
 .cur-day {
   background: #2e85ca;
     border-color: #2e85ca;
     outline: 2px solid rgba(0, 0, 0, 0.6);
     outline-offset: -4px;
+}
+.cur-day.checked {
+  border-color: transparent;
 }

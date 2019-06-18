@@ -69,7 +69,7 @@ function genCalendar(date) {
   }
   for(let i = 1; i <= daysTotal; i++) {
     if(i === curDay && date.getMonth() == today.getMonth() && date.getFullYear() == today.getFullYear()) {
-      content += '<span class="clickable cur-day">' + i + '</span>';
+      content += '<span class="clickable cur-day checked">' + i + '</span>';
       count++;
     } else {
       content += '<span class="clickable">' + i + '</span>';
@@ -140,15 +140,12 @@ function checkDayByBtnForward() {
         //clickableElls[i].classList.remove('checked');
         clickableElls[i+1].classList.toggle('checked');
       }
-      
-      /*if (checkedDayValue == clickableElls[clickableElls.length - 1]) {
+      if (checkedDayValue == clickableElls[clickableElls.length - 1].innerText) {
         currentDate.setMonth(currentDate.getMonth() + 1);
         rebuildCalendar(currentDate);
-        checkDayByBtnForward();
-      }*/
+        clickableElls = document.getElementsByClassName('clickable');
+        //clickableElls[0].classList.toggle('checked');
+      }
     }
-  } else {
-    clickableElls[0].classList.toggle('checked');
   }
-
 }

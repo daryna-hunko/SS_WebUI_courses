@@ -1,80 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <!-- add mocha css, to show results -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
-  <!-- calendar styling -->
-  <link rel="stylesheet" href="./styles.css">
-  <!-- add mocha framework code -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
-  <script>
-    mocha.setup('bdd'); // minimal setup
-  </script>
-  <!-- add chai -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
-  <script>
-    // chai has a lot of stuff, let's make assert global
-    let assert = chai.assert;
-    let expect = chai.expect;
-  </script>
-
-
-
-
-    <script src="./functional.js" defer></script>
-    <script src="./callers.js" defer></script>
+  <head>
+    <!-- add mocha css, to show results -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- calendar styling -->
+    <link rel="stylesheet" href="./styles.css">
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
     <script>
-      //window.onload = calleverything();
+      mocha.setup('bdd'); // minimal setup
     </script>
-</head>
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+      // chai has a lot of stuff, let's make assert global
+      let assert = chai.assert;
+      let expect = chai.expect;
+    </script>
 
-<body class="body">
 
 
-  <section class="calendar">
-    <div class="clock header_clock"></div>
-    <div class="date full_date"></div>
-    <div>
-      <div class="cal_header">
-        <div class="cal_controls">
-          <div class="day_controls">
-            <button class="day_back">&laquo;</button>
-            <button class="day_forward">&raquo;</button>
+
+      <script src="./functional.js" defer></script>
+      <script src="./callers.js" defer></script>
+      <script>
+        //window.onload = calleverything();
+      </script>
+  </head>
+
+  <body class="body">
+    <section class="calendar">
+      <div class="clock header_clock"></div>
+      <div class="date full_date"></div>
+      <div>
+        <div class="cal_header">
+          <div class="cal_controls">
+            <div class="day_controls">
+              <button class="day_back">&laquo;</button>
+              <button class="day_forward">&raquo;</button>
+            </div>
+            <div class="month_controls">
+              <button class="month_back">&lt;</button>
+              <button class="month_forward">&gt;</button>
+            </div>
           </div>
-          <div class="month_controls">
-            <button class="month_back">&lt;</button>
-            <button class="month_forward">&gt;</button>
-          </div>
+
+          <div class="cal_month"></div>
         </div>
-
-        <div class="cal_month"></div>
+        <div class="cal_days">
+          <span>пн</span>
+          <span>вт</span>
+          <span>ср</span>
+          <span>чт</span>
+          <span>пт</span>
+          <span>сб</span>
+          <span>вс</span>
+        </div>
+        <div class="cal_body"></div>
       </div>
-      <div class="cal_days">
-        <span>пн</span>
-        <span>вт</span>
-        <span>ср</span>
-        <span>чт</span>
-        <span>пт</span>
-        <span>сб</span>
-        <span>вс</span>
-      </div>
-      <div class="cal_body"></div>
-    </div>
-  </section>
+    </section>
 
+    <!-- the script with tests (describe, it...)
+    <script src="day_9Tests.js"></script>
 
+    
+    <div id="mocha"></div>
 
-
-
-  <!-- the script with tests (describe, it...)
-  <script src="day_9Tests.js"></script>
-
-  
-  <div id="mocha"></div>
-
-  <script>
-    mocha.run();
-  </script>-->
-</body>
-
+    <script>
+      mocha.run();
+    </script>-->
+  </body>
 </html>
