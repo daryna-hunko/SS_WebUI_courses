@@ -46,3 +46,6 @@
 
  ##Calendar
 - [Calendar](https://dhunko.github.io/SS_WebUI_courses/Calendar/index.html "Calendar")
+
+##Pet Shop
+- [Pet Shop](https://dhunko.github.io/SS_WebUI_courses/Demo_shop "Pet Shop")
