@@ -1,3 +1,12 @@
+function calleverything() {
+  clock();
+  date(new Date());
+  chosenDate(new Date());
+  genCalendar(new Date());
+}
+window.onload = calleverything();
+
+
 let currentDate = new Date(),
     dir = 0;
 
@@ -19,7 +28,6 @@ function date(now) {
 
       let date = document.querySelector('.date');
 	  	date.innerHTML = finalDate;
-
 }
 
 // currecnt visible month functionality
@@ -36,17 +44,21 @@ function chosenDate(now) {
       let finalDate = monthNames[monthIndex] + ' ' + year + ' г.';
 
       let date = document.querySelector('.cal_month');
-	  	date.innerHTML = finalDate;
-
+    	date.innerHTML = finalDate;
 }
 
 // clock functionality
 function clock(){
+  clockCaller();
   window.setInterval(function(){
-    let now = new Date();
-    let clock = document.querySelector('.clock');
-    clock.innerHTML = now.toLocaleTimeString();
+    clockCaller();
   }, 1000);
+}
+// separated clock function to reduse the delay for the first call of the clock
+function clockCaller() {
+  let now = new Date();
+  let clock = document.querySelector('.clock');
+  clock.innerHTML = now.toLocaleTimeString();
 }
 
 // calendar builder
@@ -60,7 +72,8 @@ function genCalendar(date) {
   let daysTotal = !(date.getFullYear() % 4) && date.getMonth() === 1 ? 29 : dayInMonth[date.getMonth()];
   let content = '',
       count = 0,
-      prevMonthDays = dayInMonth[date.getMonth() - 1] - (startDay - 1),
+      //fix this
+      prevMonthDays = dayInMonth[date.getMonth() - 1] - startDay + 2,
       nextMonthDays = 1;
   for(let i = 0; i < startDay - 1; i++) {
     content += '<span class="disabled prevMonth">' + prevMonthDays + '</span>';
@@ -70,6 +83,12 @@ function genCalendar(date) {
   for(let i = 1; i <= daysTotal; i++) {
     if(i === curDay && date.getMonth() == today.getMonth() && date.getFullYear() == today.getFullYear()) {
       content += '<span class="clickable cur-day checked">' + i + '</span>';
+      count++;
+    } else if (date.getMonth() !== today.getMonth() && i === 1 && dir == 1) {
+      content += '<span class="clickable checked">' + i + '</span>';
+      count++;
+    } else if (date.getMonth() !== today.getMonth() && i === daysTotal && dir == -1) {
+      content += '<span class="clickable checked">' + i + '</span>';
       count++;
     } else {
       content += '<span class="clickable">' + i + '</span>';
@@ -83,26 +102,39 @@ function genCalendar(date) {
   calendarBody.innerHTML = content;
 }
 
-// month switcher
-document.querySelector('.month_back').onclick = function(){
-  dir = -1;
-  currentDate.setMonth(currentDate.getMonth() - 1);
-  rebuildCalendar(currentDate);
-}
-document.querySelector('.month_forward').onclick = function(){
-  dir = 1;
-  currentDate.setMonth(currentDate.getMonth() + 1);
-  rebuildCalendar(currentDate);
-}
 // re-builder of the calendar
 function rebuildCalendar(currentDate) {
-  if (dir !== 0) {
-    genCalendar(new Date(currentDate));
-    chosenDate(new Date(currentDate));
-    dir = 0;
-  }
+  genCalendar(new Date(currentDate));
+  chosenDate(new Date(currentDate));
+  dir = 0;
 }
 
+// month switcher
+let changeMonth = function(e) {
+  let elem = e.target;
+  if(elem.classList.contains("month_back")) {
+    dir = -1;
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    rebuildCalendar(currentDate);
+  }
+  if(elem.classList.contains("month_forward")) {
+    dir = 1;
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    rebuildCalendar(currentDate);
+  }
+};
+let monthControls = document.querySelector('.month_controls');
+monthControls.addEventListener("click", changeMonth.bind(this), false);
+// end month switcher
+
+
+
+
+
+
+
+
+/*
 // day switcher
 document.body.addEventListener("click", function(e){
   let elem = e.target;
@@ -148,4 +180,4 @@ function checkDayByBtnForward() {
       }
     }
   }
-}
+}*/

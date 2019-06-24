@@ -72,7 +72,10 @@
   cursor: pointer;
   border: 1px solid transparent;
 }
-.clickable:hover, .clickable.checked {
+.clickable:hover {
+  border-color: #2e85ca;
+}
+.clickable.checked {
   border-color: #fff;
 }
 .disabled {
@@ -81,10 +84,10 @@
 }
 .cur-day {
   background: #2e85ca;
-    border-color: #2e85ca;
-    outline: 2px solid rgba(0, 0, 0, 0.6);
-    outline-offset: -4px;
+  border-color: #2e85ca;
 }
-.cur-day.checked {
-  border-color: transparent;
+.cur-day.checked, .cur-day:hover {
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+  outline-offset: -4px;
+  border-color: #2e85ca;
 }
