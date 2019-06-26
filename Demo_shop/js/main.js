@@ -1,4 +1,6 @@
+window.lang = 'en';
 function init() {
+  getTranslations();
   getData();
 }
 
@@ -11,15 +13,27 @@ function getData() {
   })
   .then(data => {
     // Work with JSON data here - pull this to localStorage
-    //localStorage.setItem("productsArr", JSON.stringify(data));
     Builder.build(data);
+    localStorage.setItem("productsArr", JSON.stringify(data));
   })
   /*
   var returnObj = JSON.parse(localStorage.getItem("productsArr"));
   console.log(returnObj)*/
 }
+function getTranslations() {
+  const url = "data/translations.json";
 
-class Builder {
+  fetch(url)
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    // Work with JSON data here 
+    window.translations = data;
+  })
+}
+
+export default class Builder {
   constructor(data) {}
   static products (data) {
     const result = [];
@@ -44,11 +58,37 @@ class Builder {
     return result;
   }
 
-  build(data) {
-    Card.render(data);
+  static build(data) {
+    Card.render(this.products(data));
   }
-  
 }
+
+let langControls = document.querySelector('.lang-menu');
+langControls.addEventListener("click", function(e){
+  let elem = e.target;
+  cleanCheckedDay();
+  if(elem.classList.contains("item")) elem.classList.toggle("active");
+  changLang();
+});
+
+function changLang() {
+  let activeLang = document.querySelector('.lang-menu .active');
+  window.lang = activeLang.outerText;
+
+  let productsDB = JSON.parse(localStorage.getItem("productsArr"));
+  Builder.build(productsDB);
+  //getData();
+}
+function cleanCheckedDay() {
+  let chEll = document.getElementsByClassName('active');
+  if (chEll.length !== 0) {
+    for (let i = 0; i < chEll.length; i++) {
+      chEll[i].classList.remove("active");
+      break;
+    }
+  }
+}
+
 
 
 class Card {
@@ -58,22 +98,46 @@ class Card {
 
   static create(el) {
     const rowCards = document.querySelector('.products-container');
-    let parentDiv = document.createElement('div');
+    let parentDiv = document.createElement('div'),
+        uniqueCartClass = 'card-' + el.id,
+        description = '',
+        content = '';
 
     el.link = parentDiv;
 
-    parentDiv.classList.add('ui', 'card');
+    description = '<div class=\"descr\">';
+    for(let part in el){
+      if (part !== 'name' && part !== 'url' && part !== 'id' && part !== 'type' && part !== 'quantity' && part !== 'link') {
+        content += '<p>' + convertToLang(part) + ": " + convertToLang(el[part]) + '</p>';
+      }
+    }
+    function convertToLang(a){
+      let result = a;
+      for (let pos in window.translations[0]) {
+        if (a == pos) {
+          (isNaN(1 * a)) ? result = window.translations[0][a][0][window.lang] : result = a;
+        }
+        if (a == true) {
+          result = window.translations[0]['true'][0][window.lang];
+        }
+        if (a == false) {
+          result = window.translations[0]['false'][0][window.lang];
+        }
+      }
+      return result;
+    }
+    description += content + '</div>';
+
+    el.link = parentDiv;
+
+    parentDiv.classList.add('ui', 'card', uniqueCartClass);
     parentDiv.innerHTML = `<div class="image">
             <img src="${el.url}">
           </div>
           <div class="content">
             <a class="header">${el.name}</a>
             <div class="available">Available at the moment: ${el.quantity}</div>
-            <div class="ui buttons">
-              <button class="ui disabled negative button"><i class="minus icon"></i></button>
-              <div class="or"></div>
-              <button class="ui positive button"><i class="plus icon"></i></button>
-            </div>
+            ${description}
           </div>`;
     rowCards.appendChild(parentDiv);
   }
@@ -85,12 +149,13 @@ class Card {
     }
   }
 
-  render(data) {
-    window.products = [];
+  static render(data) {
+    //window.products = [];
     this.delete();
     data.forEach((el)=>{
       // build Card
-      window.products.push(this.create(el));
+      //window.products.push(this.create(el));
+      this.create(el);
     });
   }
 }
@@ -104,7 +169,7 @@ class Animal {
     this.id = data.id;
     this.name = data.name;
     this.type = data.type;
-    this.male = data.male;
+    this.gender = data.gender;
     this.quantity = data.quantity;
     this.url = data.url;
     this.price = data.price;

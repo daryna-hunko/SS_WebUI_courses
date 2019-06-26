@@ -49,3 +49,16 @@ table {
 }
 /*end reset*/
 
+header, footer {
+  background: rgba(0, 0, 0, .8);
+  color: #fff;
+  padding: 20px 0;
+}
+main {
+  padding: 40px 0;
+}
+.shopping-cart {
+  float: right;
+  color: #fff;
+  padding: 10px 20px;
+}
