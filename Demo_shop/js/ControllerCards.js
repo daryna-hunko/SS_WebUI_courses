@@ -10,8 +10,18 @@ export default class ControllerCards
     }
 
     init(){
-        Builder.loadJSON(this);
-        Builder.loadTranslations(this);
+      this.model.loadJSON(this);
+      this.model.loadTranslations(this);
+
+      //move to view
+      document.querySelector('.filter').addEventListener("click", e=>
+      this.model.filterContent());
+      /*document.querySelector('.result').addEventListener("click", function(e){
+          let name = document.querySelector('.title');
+          name = name.outerTex;
+          this.model.filterContent();
+        //Builder.filterContent(name);
+      });*/
     }
 
     showView(data){

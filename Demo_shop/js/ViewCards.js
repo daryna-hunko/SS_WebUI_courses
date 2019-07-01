@@ -12,7 +12,7 @@ export default class Card {
 
     description = '<div class=\"descr\">';
     for(let part in el){
-      if (part !== 'title' && part !== 'url' && part !== 'id' && part !== 'type' && part !== 'quantity' && part !== 'link') {
+      if (part !== 'title' && part !== 'prod_url' && part !== 'id' && part !== 'type' && part !== 'quantity' && part !== 'link') {
         content += '<p>' + this.convertToLang(part) + ": " + this.convertToLang(el[part]) + '</p>';
       }
     }
@@ -22,10 +22,10 @@ export default class Card {
 
     parentDiv.classList.add('ui', 'card', uniqueCartClass);
     parentDiv.innerHTML = `<div class="image">
-            <img src="${el.url}">
+            <img src="${el.prod_url}">
           </div>
           <div class="content">
-            <a class="header">${el.title}</a>
+            <a class="header">${el.name}</a>
             <!-- <div class="available">Available at the moment: ${el.quantity}</div> -->
             </br>
             ${description}
