@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "Burmese",
+    "title": "Burmese",
     "type": "cat",
     "gender": "male",
     "quantity": 5,
@@ -20,7 +20,7 @@
   },
   {
     "id": "2",
-    "name": "Manx Cat",
+    "title": "Manx Cat",
     "type": "cat",
     "gender": "female",
     "quantity": 1,
@@ -39,7 +39,7 @@
   },
   {
     "id": "3",
-    "name": "Scottish Fold Cat Breed",
+    "title": "Scottish Fold Cat Breed",
     "type": "cat",
     "gender": "male",
     "quantity": 2,
@@ -58,7 +58,7 @@
   },
   {
     "id": "4",
-    "name": "Devon Rex Cat Breed",
+    "title": "Devon Rex Cat Breed",
     "type": "cat",
     "gender": "male",
     "quantity": 3,
@@ -77,7 +77,7 @@
   },
   {
     "id": "5",
-    "name": "Akita",
+    "title": "Akita",
     "type": "dog",
     "gender": "male",
     "quantity": 1,
@@ -96,7 +96,7 @@
   },
   {
     "id": "6",
-    "name": "Bichon Frise",
+    "title": "Bichon Frise",
     "type": "dog",
     "gender": "female",
     "quantity": 3,
@@ -115,7 +115,7 @@
   },
   {
     "id": "8",
-    "name": "Doberman Pinscher",
+    "title": "Doberman Pinscher",
     "type": "dog",
     "gender": "male",
     "quantity": 2,
@@ -134,7 +134,7 @@
   },
   {
     "id": "7",
-    "name": "Toy Fox Terrier",
+    "title": "Toy Fox Terrier",
     "type": "dog",
     "gender": "male",
     "quantity": 2,
@@ -153,7 +153,7 @@
   },
   {
     "id": "9",
-    "name": "Xoloitzcuintli",
+    "title": "Xoloitzcuintli",
     "type": "dog",
     "gender": "male",
     "quantity": 1,
@@ -172,7 +172,7 @@
   },
   {
     "id": "10",
-    "name": "Borzoi",
+    "title": "Borzoi",
     "type": "dog",
     "gender": "male",
     "quantity": 1,
@@ -191,7 +191,7 @@
   },
   {
     "id": "11",
-    "name": "Budgies",
+    "title": "Budgies",
     "type": "bird",
     "gender": "female",
     "quantity": 23,
@@ -208,7 +208,7 @@
   },
   {
     "id": "12",
-    "name": "Cockatiels",
+    "title": "Cockatiels",
     "type": "bird",
     "gender": "male",
     "quantity": 12,
@@ -225,7 +225,7 @@
   },
   {
     "id": "13",
-    "name": "Cockatoos",
+    "title": "Cockatoos",
     "type": "bird",
     "gender": "male",
     "quantity": 2,
@@ -242,7 +242,7 @@
   },
   {
     "id": "14",
-    "name": "Parrotlets",
+    "title": "Parrotlets",
     "type": "bird",
     "gender": "male",
     "quantity": 1,
@@ -259,7 +259,7 @@
   },
   {
     "id": "15",
-    "name": "Hyacinth Macaws",
+    "title": "Hyacinth Macaws",
     "type": "bird",
     "gender": "female",
     "quantity": 1,
@@ -276,7 +276,7 @@
   },
   {
     "id": "16",
-    "name": "Neon Tetra",
+    "title": "Neon Tetra",
     "type": "fish",
     "gender": "female",
     "quantity": 23,
@@ -292,7 +292,7 @@
   },
   {
     "id": "17",
-    "name": "Guppies",
+    "title": "Guppies",
     "type": "fish",
     "gender": "male",
     "quantity": 12300,
@@ -308,7 +308,7 @@
   },
   {
     "id": "18",
-    "name": "Oscar",
+    "title": "Oscar",
     "type": "fish",
     "gender": "male",
     "quantity": 2,
@@ -324,7 +324,7 @@
   },
   {
     "id": "19",
-    "name": "Zebra Danios",
+    "title": "Zebra Danios",
     "type": "fish",
     "gender": "male",
     "quantity": 4,
@@ -340,7 +340,7 @@
   },
   {
     "id": "20",
-    "name": "Bettas",
+    "title": "Bettas",
     "type": "fish",
     "gender": "male",
     "quantity": 1,

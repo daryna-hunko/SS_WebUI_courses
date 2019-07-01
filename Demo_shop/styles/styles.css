@@ -62,3 +62,11 @@ main {
   color: #fff;
   padding: 10px 20px;
 }
+
+.checkbox {
+  padding: 8px 0;
+}
+.subFilters {
+  padding: 15px 0;
+  border-top: 1px solid rgba(0, 0, 0, .8);
+}
