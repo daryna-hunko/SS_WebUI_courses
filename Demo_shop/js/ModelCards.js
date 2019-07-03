@@ -3,33 +3,40 @@ import Card from "./ViewCards.js";
 
 export default class Builder {
   loadJSON(contr) {
-    const url = "data/data.json";
-    fetch(url)
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      // Work with JSON data here - pull this to localStorage
-      window.productsStorage = data;
-      localStorage.setItem("productsArr", JSON.stringify(data));
+    if (localStorage.getItem("productsArr") == null) {
+      const url = "data/data.json";
+      fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        // Work with JSON data here - pull this to localStorage
+        window.productsStorage = data;
+        localStorage.setItem("productsArr", JSON.stringify(data));
+        contr.showView(data);
+      })
+    } else {
+      let data = JSON.parse(localStorage.getItem("productsArr"));
       contr.showView(data);
-    })
+    }
     /*
     var returnObj = JSON.parse(localStorage.getItem("productsArr"));
     console.log(returnObj)*/
   }
   loadTranslations() {
-    const url = "data/translations.json";
-  
-    fetch(url)
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      // Work with JSON data here 
-      localStorage.setItem("translations", JSON.stringify(data));
-      //window.translations = data;
-    })
+    if (localStorage.getItem("translations") == null) {
+      const url = "data/translations.json";
+    
+      fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        // Work with JSON data here 
+        localStorage.setItem("translations", JSON.stringify(data));
+        //window.translations = data;
+      })
+    }
   }
 
 
@@ -104,6 +111,8 @@ export default class Builder {
       this.build(this.products(filteredArray));
     }*/
   }
+
+  
 }
 
 

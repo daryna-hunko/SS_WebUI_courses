@@ -25,7 +25,7 @@ export default class Card {
             <img src="${el.prod_url}">
           </div>
           <div class="content">
-            <a class="header">${el.name}</a>
+            <a class="header">${el.title}</a>
             <!-- <div class="available">Available at the moment: ${el.quantity}</div> -->
             </br>
             ${description}

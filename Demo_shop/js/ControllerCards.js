@@ -12,7 +12,6 @@ export default class ControllerCards
     init(){
       this.model.loadJSON(this);
       this.model.loadTranslations(this);
-
       //move to view
       document.querySelector('.filter').addEventListener("click", e=>
       this.model.filterContent());
