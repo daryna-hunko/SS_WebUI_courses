@@ -10,21 +10,21 @@ export default class ControllerCards
     }
 
     init(){
-      this.model.loadJSON(this);
       this.model.loadTranslations(this);
-      //move to view
-      document.querySelector('.filter').addEventListener("click", e=>
-      this.model.filterContent());
-      /*document.querySelector('.result').addEventListener("click", function(e){
-          let name = document.querySelector('.title');
-          name = name.outerTex;
-          this.model.filterContent();
-        //Builder.filterContent(name);
-      });*/
+      this.model.loadJSON(this);
+      this.view.initListeners(this);
     }
 
     showView(data){
-       Card.render(data, this);
+      let dataModified = this.model.products(data);
+      this.view.render(data, this);
+    }
+
+    transtate(word) {
+      return this.model.convertToLang(word);
+    }
+    filter() {
+      this.model.filterContent(this);
     }
 
 }

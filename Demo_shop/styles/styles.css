@@ -70,3 +70,19 @@ main {
   padding: 15px 0;
   border-top: 1px solid rgba(0, 0, 0, .8);
 }
+.card {
+	position: relative;
+}
+.card:hover .descr {
+	display: block;
+}
+.descr {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: #fff;
+	padding: 10px;
+	display: none;
+}

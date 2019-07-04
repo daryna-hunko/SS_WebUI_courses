@@ -1,6 +1,5 @@
 import Card from "./ViewCards.js";
 
-
 export default class Builder {
   loadJSON(contr) {
     if (localStorage.getItem("productsArr") == null) {
@@ -11,7 +10,7 @@ export default class Builder {
       })
       .then(data => {
         // Work with JSON data here - pull this to localStorage
-        window.productsStorage = data;
+        //window.productsStorage = data;
         localStorage.setItem("productsArr", JSON.stringify(data));
         contr.showView(data);
       })
@@ -34,7 +33,6 @@ export default class Builder {
       .then(data => {
         // Work with JSON data here 
         localStorage.setItem("translations", JSON.stringify(data));
-        //window.translations = data;
       })
     }
   }
@@ -42,7 +40,7 @@ export default class Builder {
 
   products(data) {
     const result = [];
-        
+
     data.forEach(element => {
       switch (element.type) {
         case 'cat':
@@ -62,13 +60,26 @@ export default class Builder {
 
     return result;
   }
-  // this should be called in controller
-  build(data) {
-    Card.render(this.products(data));
+
+  convertToLang(a){
+    let result = a;
+    let translations = JSON.parse(localStorage.getItem("translations"));
+    for (let pos in translations[0]) {
+      if (a == pos) {
+        (isNaN(1 * a)) ? result = translations[0][a][0][window.lang] : result = a;
+      }
+      if (a == true) {
+        result = translations[0]['true'][0][window.lang];
+      }
+      if (a == false) {
+        result = translations[0]['false'][0][window.lang];
+      }
+    }
+    return result;
   }
 
   // this should be called in controller?
-  static changLang() {
+  /*changLang() {
     let activeLang = document.querySelector('.lang-menu .active');
     window.lang = activeLang.outerText;
     if (
@@ -81,9 +92,9 @@ export default class Builder {
     } else {
       this.build(window.productsStorage);
     }
-  }
+  }*/
 
-  filterContent(title) {
+  filterContent(contr) {
     let filteredArray = [],
         temparr = JSON.parse(localStorage.getItem("productsArr")),
         checkBoxCat = document.querySelector('.checkbox-cat'),
@@ -94,22 +105,19 @@ export default class Builder {
         
     if (checkBoxCat.checked == true) {
       filteredArray = temparr.filter(el => el.type == 'cat');
-      this.build(this.products(filteredArray));
+      contr.showView(filteredArray);
     } else if (checkBoxDog.checked == true) {
       filteredArray = temparr.filter(el => el.type == 'dog');
-      this.build(this.products(filteredArray));
+      contr.showView(filteredArray);
     } else if (checkBoxBird.checked == true) {
       filteredArray = temparr.filter(el => el.type == 'bird');
-      this.build(this.products(filteredArray));
+      contr.showView(filteredArray);
     } else if (checkBoxFish.checked == true) {
       filteredArray = temparr.filter(el => el.type == 'fish');
-      this.build(this.products(filteredArray));
+      contr.showView(filteredArray);
     } else if (checkBoxAll.checked == true) {
-      this.build(this.products(temparr));
-    } /*else if (typeOf(title) == 'string') {
-      filteredArray = temparr.filter(el => el.title == title);
-      this.build(this.products(filteredArray));
-    }*/
+      contr.showView(this.products(temparr));
+    }
   }
 
   
@@ -132,13 +140,13 @@ document.querySelector('.search').addEventListener("click", function(e){
 
 
 // view lang controls
-let langControls = document.querySelector('.lang-menu');
+/*let langControls = document.querySelector('.lang-menu');
 langControls.addEventListener("click", function(e){
   let elem = e.target;
   Card.cleanCheckedDay();
   if(elem.classList.contains("item")) elem.classList.toggle("active");
   Builder.changLang();
-});
+});*/
 
 
 

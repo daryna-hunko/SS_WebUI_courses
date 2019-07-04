@@ -1,8 +1,8 @@
 export default class Card {
-  constructor(data) {
-    this.data = data;
+  initListeners(contr) {
+    document.querySelector('.filter').addEventListener("click", e=>contr.filter());
   }
-  static create(el) {
+  create(el, contr) {
     const rowCards = document.querySelector('.products-container');
     let parentDiv = document.createElement('div'),
         uniqueCartClass = 'card-' + el.id,
@@ -13,7 +13,7 @@ export default class Card {
     description = '<div class=\"descr\">';
     for(let part in el){
       if (part !== 'title' && part !== 'prod_url' && part !== 'id' && part !== 'type' && part !== 'quantity' && part !== 'link') {
-        content += '<p>' + this.convertToLang(part) + ": " + this.convertToLang(el[part]) + '</p>';
+        content += '<p>' + contr.transtate(part) + ": " + contr.transtate(el[part]) + '</p>';
       }
     }
     description += content + '</div>';
@@ -32,8 +32,7 @@ export default class Card {
           </div>`;
     rowCards.appendChild(parentDiv);
   }
-  // move this to model
-  static convertToLang(a){
+  /*convertToLang(a){
     let result = a;
     let translations = JSON.parse(localStorage.getItem("translations"));
     for (let pos in translations[0]) {
@@ -48,26 +47,23 @@ export default class Card {
       }
     }
     return result;
-  }
+  }*/
 
-  static delete() {
+  delete() {
     const rowCards = document.querySelector('.products-container');
     while(rowCards.hasChildNodes()){
         rowCards.removeChild(rowCards.firstChild);
     }
   }
 
-  static render(data) {
-    //window.products = [];
+  render(data, contr) {
     this.delete();
     data.forEach((el)=>{
-      // build Card
-      //window.products.push(this.create(el));
-      this.create(el);
+      this.create(el, contr);
     });
   }
 
-  static cleanCheckedDay() {
+  /*cleanCheckedDay() {
     let chEll = document.getElementsByClassName('active');
     if (chEll.length !== 0) {
       for (let i = 0; i < chEll.length; i++) {
@@ -75,6 +71,6 @@ export default class Card {
         break;
       }
     }
-  }
+  }*/
 }
 
