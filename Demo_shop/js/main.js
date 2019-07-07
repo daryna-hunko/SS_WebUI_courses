@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', new ControllerCards());
 
 
 //all that jQuery from Semantic UI
-let searchDB = JSON.parse(localStorage.getItem("productsArr"));
+/*let searchDB = JSON.parse(localStorage.getItem("productsArr"));
 
 $('.ui.search')
   .search({
     source: searchDB
   })
-;
+;*/

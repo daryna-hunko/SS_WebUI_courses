@@ -79,24 +79,15 @@ export default class Builder {
   }
 
   // this should be called in controller?
-  /*changLang() {
+  changLang(contr) {
     let activeLang = document.querySelector('.lang-menu .active');
     window.lang = activeLang.outerText;
-    if (
-      document.querySelector('.checkbox-cat').checked ||
-      document.querySelector('.checkbox-dog').checked ||
-      document.querySelector('.checkbox-bird').checked ||
-      document.querySelector('.checkbox-fish').checked
-    ) {
-      this.filterContent();
-    } else {
-      this.build(window.productsStorage);
-    }
-  }*/
+    this.filterContent(contr);
+  }/**/
 
-  filterContent(contr) {
+  filterContent(contr, temparr) {
+    temparr = temparr || JSON.parse(localStorage.getItem("productsArr"));
     let filteredArray = [],
-        temparr = JSON.parse(localStorage.getItem("productsArr")),
         checkBoxCat = document.querySelector('.checkbox-cat'),
         checkBoxDog = document.querySelector('.checkbox-dog'),
         checkBoxBird = document.querySelector('.checkbox-bird'),
@@ -118,9 +109,68 @@ export default class Builder {
     } else if (checkBoxAll.checked == true) {
       contr.showView(this.products(temparr));
     }
+    //document.querySelector('.prompt').value = null;
   }
 
-  
+  search(contr) {
+    let temparr = JSON.parse(localStorage.getItem("productsArr")),
+        searchTitle = document.querySelector('.prompt').value.toLowerCase(),
+        searchArr = [],
+        tempTitle;
+      temparr.forEach(function(el) {
+        tempTitle = el.title.toLowerCase();
+        if (tempTitle.includes(searchTitle)) {
+          searchArr.push(el);
+        }
+      });
+    this.filterContent(contr, searchArr);
+  }
+
+  handlePoints(el, dir){
+    const value  = (dir == 1)? 1: -1;
+    const data = JSON.parse(localStorage.getItem('productsArr'));
+    let currentCart = JSON.parse(localStorage.getItem('cart')),
+        quantity = 1,
+        id = +el.id;    
+    
+    //const limitQuantity = el.quantity;
+    currentCart === null ? currentCart=[] : currentCart;
+    data.forEach(element => {
+      if (+element.id === +el.id){
+        if (element.quantity > 0) {
+          if (value == 1) {
+            element.quantity -= value;
+            currentCart.push(new Array(id, quantity));
+          } 
+          if (value == -1) {
+            for (let currentCartEl in currentCart) {
+              if (currentCart[currentCartEl][0] == id ) {
+                element.quantity -= value;
+                currentCart.splice(currentCartEl, 1);
+                break;
+              }
+            }
+          }
+        }
+        if (element.quantity == 0) {
+          document.querySelector(`.card-${el.id}`).classList.add("no-products");
+          if (value == -1) {
+            for (let currentCartEl in currentCart) {
+              if (currentCart[currentCartEl][0] == id ) {
+                element.quantity -= value;
+                currentCart.splice(currentCartEl, 1);
+                document.querySelector(`.card-${el.id}`).classList.remove("no-products");
+                break;
+              }
+            }
+          }
+        }
+      }
+    });
+    localStorage.setItem('cart', JSON.stringify(currentCart));
+    localStorage.setItem('productsArr', JSON.stringify(data));
+    return data;
+  }
 }
 
 

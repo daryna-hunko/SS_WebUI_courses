@@ -1,11 +1,11 @@
 import Builder from "./ModelCards.js";
-import Card from "./ViewCards.js";
+import View from "./ViewCards.js";
 
 export default class ControllerCards
 {
     constructor(){
         this.model = new Builder();
-        this.view = new Card();
+        this.view = new View();
         this.init();
     }
 
@@ -23,8 +23,24 @@ export default class ControllerCards
     transtate(word) {
       return this.model.convertToLang(word);
     }
+    transtateCards(e) {
+      this.view.reCheckActiveLang(e);
+      this.model.changLang(this);
+    }
     filter() {
       this.model.filterContent(this);
+    }
+
+    searchCards() {
+      this.view.resetFilters();
+      this.model.search(this);
+    }
+
+    addPoints(el){
+      this.model.handlePoints(el, 1);
+    }
+    removePoints(el){
+      this.model.handlePoints(el, -1);
     }
 
 }
