@@ -98,6 +98,9 @@ main {
 	margin-left: -74px;
 	z-index: 10;
 }
-.card.no-products {
+.card.no-products .image, .card.no-products .header, .card.no-products .descr {
 	opacity: .4;
+}
+.card.no-products:hover .descr {
+	display: none;
 }
