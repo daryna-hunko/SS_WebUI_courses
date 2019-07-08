@@ -61,29 +61,11 @@ export default class Builder {
     return result;
   }
 
-  convertToLang(a){
-    let result = a;
-    let translations = JSON.parse(localStorage.getItem("translations"));
-    for (let pos in translations[0]) {
-      if (a == pos) {
-        (isNaN(1 * a)) ? result = translations[0][a][0][window.lang] : result = a;
-      }
-      if (a == true) {
-        result = translations[0]['true'][0][window.lang];
-      }
-      if (a == false) {
-        result = translations[0]['false'][0][window.lang];
-      }
-    }
-    return result;
-  }
-
-  // this should be called in controller?
   changLang(contr) {
     let activeLang = document.querySelector('.lang-menu .active');
     window.lang = activeLang.outerText;
     this.filterContent(contr);
-  }/**/
+  }
 
   filterContent(contr, temparr) {
     temparr = temparr || JSON.parse(localStorage.getItem("productsArr"));
@@ -131,12 +113,12 @@ export default class Builder {
     const data = JSON.parse(localStorage.getItem('productsArr'));
     let currentCart = JSON.parse(localStorage.getItem('cart')),
         quantity = 1,
-        id = +el.id;    
+        id = el.id;    
     
     //const limitQuantity = el.quantity;
     currentCart === null ? currentCart=[] : currentCart;
     data.forEach(element => {
-      if (+element.id === +el.id){
+      if (element.id === el.id){
         if (element.quantity > 0) {
           if (value == 1) {
             element.quantity -= value;

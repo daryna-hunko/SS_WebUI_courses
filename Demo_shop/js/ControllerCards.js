@@ -20,9 +20,6 @@ export default class ControllerCards
       this.view.render(data, this);
     }
 
-    transtate(word) {
-      return this.model.convertToLang(word);
-    }
     transtateCards(e) {
       this.view.reCheckActiveLang(e);
       this.model.changLang(this);

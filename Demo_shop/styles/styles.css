@@ -104,3 +104,27 @@ main {
 .card.no-products:hover .descr {
 	display: none;
 }
+.shopping-cart-wrap {
+	position: relative;
+}
+.shopping-cart-inner {
+	position: absolute;
+	top: 68px;
+	right: 0;
+	z-index: 20;
+	background: #fff;
+	display: none;
+}
+.shopping-cart:hover + .shopping-cart-inner, .shopping-cart-inner.visible {
+	display: block;
+}
+.shopping-cart-empty {
+	height: 200px;
+	text-align: center;
+	border: 1px solid rgba(0, 0, 0, .8);
+	border-radius: 4px;
+	padding: 50px;
+}
+.shopping-cart-empty img{
+	height: 100px;
+}
