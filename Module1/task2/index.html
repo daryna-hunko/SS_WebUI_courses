@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- add mocha css, to show results -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+      mocha.setup('bdd'); // minimal setup
+    </script>
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+      // chai has a lot of stuff, let's make assert global
+      let assert = chai.assert;
+      let expect = chai.expect;
+    </script>
+    <title>Task 2</title>
+  </head>
+
+  <body>
+    <script src="task2.js"></script>
+
+    <div class="tast-2-decr">
+      <div>Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.</div>
+      <div>Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).</div>
+      <div>If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.</div>
+      <div>Examples
+          "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+          "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+          ""  -->  ""</div>
+    </div>
+
+    <div class="tast-2-output">
+      
+    </div>
+
+    <!-- the script with tests (describe, it...)
+    <script src="task2Tests.js"></script> -->
+
+    <!-- the element with id="mocha" will contain test results -->
+    <div id="mocha"></div>
+
+    <!-- run tests! -->
+    <script>
+      mocha.run();
+    </script>
+  </body>
+
+</html>

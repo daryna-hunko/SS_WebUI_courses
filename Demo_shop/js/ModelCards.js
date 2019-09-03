@@ -153,32 +153,25 @@ export default class Builder {
     localStorage.setItem('productsArr', JSON.stringify(data));
     return data;
   }
+
+  cartData() {
+    const currentCart = JSON.parse(localStorage.getItem('cart'));
+    const productsArr = JSON.parse(localStorage.getItem('productsArr'));
+    if (currentCart !== null) {
+      currentCart.forEach(el => {
+        for (let arrEl in productsArr) {
+          if (productsArr[arrEl].id == el[0]) {
+            el.push(productsArr[arrEl].title);
+            el.length = 3;
+            break;
+          }
+        }
+      });
+      localStorage.setItem('cart', JSON.stringify(currentCart));
+    }
+  }
 }
 
-
-
-/*
-let search = document.querySelector('.search');
-document.querySelector('.search').addEventListener("click", function(e){
-  let result = document.querySelector('.result');
-  result.addEventListener("hover", function(e){
-    let name = document.querySelector('.title');
-    result.setAttribute('href','javascript.void();');
-    name = name.outerTex;
-  });
-  //Builder.filterContent(name);
-});*/
-
-
-
-// view lang controls
-/*let langControls = document.querySelector('.lang-menu');
-langControls.addEventListener("click", function(e){
-  let elem = e.target;
-  Card.cleanCheckedDay();
-  if(elem.classList.contains("item")) elem.classList.toggle("active");
-  Builder.changLang();
-});*/
 
 
 

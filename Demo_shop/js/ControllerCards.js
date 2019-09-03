@@ -40,4 +40,8 @@ export default class ControllerCards
       this.model.handlePoints(el, -1);
     }
 
+    buldCart() {
+      this.model.cartData();
+      this.view.createCartContent(this);
+    }
 }

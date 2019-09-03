@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- add mocha css, to show results -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+      mocha.setup('bdd'); // minimal setup
+    </script>
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+      // chai has a lot of stuff, let's make assert global
+      let assert = chai.assert;
+      let expect = chai.expect;
+    </script>
+    <title>Task 1</title>
+  </head>
+
+  <body>
+    <script src="task1.js"></script>
+
+    <div class="tast-1-decr" style="width: 80%; margin: 75px auto;">
+      <div>Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. You can guarantee that input is non-negative.</div>
+      <div>Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case</div>
+    </div>
+
+    <div class="tast-1-output">
+      
+    </div>
+
+    <!-- the script with tests (describe, it...) 
+    <script src="task1Tests.js"></script> -->
+
+    <!-- the element with id="mocha" will contain test results -->
+    <div id="mocha"></div>
+
+    <!-- run tests! -->
+    <script>
+      mocha.run();
+    </script>
+  </body>
+
+</html>
